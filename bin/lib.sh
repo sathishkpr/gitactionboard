@@ -138,10 +138,20 @@ _talisman_verify() {
   fi
 }
 
-_bump_version(){
+_bump_version() {
   local bump_component="${1}"
   pushd "backend" >/dev/null || exit
-    _ensure_jenv
-    jenv exec ./gradlew tag -Prelease -PbumpComponent="${bump_component}" -Dmessage="$(git log -1 --format=%s)"
+  _ensure_jenv
+  jenv exec ./gradlew tag -Prelease -PbumpComponent="${bump_component}" -Dmessage="$(git log -1 --format=%s)"
   popd >/dev/null || exit
+}
+
+_add_contributors() {
+  local username="${1}"
+  local contributionType="${2}"
+  all-contributors add "${username}" "${contributionType}"
+}
+
+_generate_contributors_list() {
+  all-contributors generate
 }

@@ -20,6 +20,8 @@ commands:
   docker-build                                         Build docker image
   talisman-verify                                      Verify no sensitive information is committed using talisman
   bump-version <major|minor|patch>                     Release a new <major|minor|patch> version
+  add-contributors <username> <contribution type>      Add new contributors to contributors list
+  generate-contributors-list                           Update contributors list in readme
 EOF
   exit 1
 }
@@ -34,5 +36,7 @@ case ${CMD} in
   docker-build) _docker_build ;;
   talisman-verify) _talisman_verify ;;
   bump-version) _bump_version "${1}" ;;
+  add-contributors) _add_contributors "${1}" "${2}" ;;
+  generate-contributors-list) _generate_contributors_list ;;
   *) _usage ;;
 esac
