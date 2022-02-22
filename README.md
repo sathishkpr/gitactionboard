@@ -33,7 +33,6 @@ Gitaction Board - Ultimate Dashboard for GithubActions.
   - [Generate Changelog](#generate-changelog)
   - [Release a new Docker image](#release-a-new-docker-image)
 - [Contributors](#contributors-)
-- 
 
 ## Changelog
 
